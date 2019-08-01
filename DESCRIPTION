@@ -1,0 +1,13 @@
+Package: CollegeFootballDataR
+Type: Package
+Title: Retrieves Data from the CollegeFootballData.com API
+Version: 0.1.0
+Author: Zachary P. Malosh, MS, MBA
+Maintainer: Zachary P. Malosh, MS, MBA <maloshzp@gmail.com>
+Description: Retrieves Data
+    from the CollegeFootballData.com API
+License: N/A
+Encoding: UTF-8
+LazyData: true
+imports:
+  tidyverse, jsonlite, httr
