@@ -8,7 +8,7 @@
 
 get_conferences <- function(){
 	source('R/get_json_from_url.R')
-	safOpt <- options('stringsAsFactors')
+	safOpt <- getOption('stringsAsFactors')
 	options(stringsAsFactors = FALSE)
 	conferences <- get_json_from_url('conferences') %>%
 		transform(ConferenceId = id,
@@ -16,6 +16,6 @@ get_conferences <- function(){
 				  ConferenceFullName = short_name,
 				  ConferenceAbbr = abbreviation) %>%
 		select(ConferenceId, ConferenceName, ConferenceAbbr, ConferenceFullName)
-	options(stringsAsFactors = safOpt)
+	options(stringsAsFactors = FALSE)
 	return(conferences)
 }
