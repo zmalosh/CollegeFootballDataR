@@ -12,7 +12,9 @@ get_json_from_url <- function(urlPath,
 		}
 	}
 
-	url <- paste0('https://api.collegefootballdata.com/', urlPath)
+	urlPath <- str_replace(paste0('/', urlPath), '//', '/')
+	url <- paste0('https://api.collegefootballdata.com', urlPath)
+
 	if(!is.null(queryParams)){
 		qp <- paste0(names(queryParams), '=', queryParams, collapse = '&')
 		url <- paste0(url, '?', qp)
