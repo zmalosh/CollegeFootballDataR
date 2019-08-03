@@ -28,7 +28,8 @@ get_games <- function(year,
 {
 	source('R/get_json_from_url.R')
 	queryParams <- get_query_params(year, week, seasonType, team, home, away, conference)
-	games <- get_json_from_url(urlPath = 'games', queryParams = queryParams) %>%
+	rawGames <- get_json_from_url(urlPath = 'games', queryParams = queryParams)
+	games <- rawGames %>%
 		transform(GameId = id,
 				  Season = season,
 				  SeasonType = season_type,
