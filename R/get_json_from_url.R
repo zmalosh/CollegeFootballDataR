@@ -20,6 +20,9 @@ get_json_from_url <- function(urlPath,
 		url <- paste0(url, '?', qp)
 	}
 
+	# URL ENCODE AS NEEDED
+	url <- str_replace(url, ' ', '%20')
+
 	response <- httr::GET(url)
 	rawJson <- httr::content(response, as = 'text')
 	json <- jsonlite::fromJSON(rawJson)
