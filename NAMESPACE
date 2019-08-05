@@ -1,6 +1,7 @@
 export(get_coach_seasons)
 export(get_conferences)
 export(get_drives)
+export(get_game_lines)
 export(get_games)
 export(get_matchups)
 export(get_play_types)
