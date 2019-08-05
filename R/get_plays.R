@@ -1,6 +1,6 @@
-#'@title Gets a set of college football games
+#'@title Gets a set of college football plays
 #'
-#'@description Get all of the games that meet the provided criteria
+#'@description Get all of the plays from games that meet the provided criteria
 #'
 #'@param year (required) Year for desired games
 #'
