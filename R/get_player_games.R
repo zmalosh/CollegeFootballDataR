@@ -44,7 +44,6 @@ get_player_games <- function(gameId = NULL,
 					rawPlayerStat <- rawPlayerStats[rpsIdx,]
 					rawPlayers <- as.data.frame(rawPlayerStat$athletes)
 					statName <- get_player_stat_name(rawTeamCategory$name, rawPlayerStat$name)
-					print(paste(rpgIdx, teamIdx, catIdx, rpsIdx, statName, rawTeamCategory$name, rawPlayerStat$name))
 					df <- data.frame(GameId = rawPlayerGame$id,
 									 PlayerId = rawPlayers$id,
 									 PlayerName = rawPlayers$name,
@@ -62,18 +61,6 @@ get_player_games <- function(gameId = NULL,
 
 	return(playerStats)
 }
-
-gameId <- NULL
-year <- 2018
-week <- 1
-seasonType <- NULL
-team <- NULL
-conference <- NULL
-rpgIdx <- 1
-teamIdx <- 1
-catIdx <- 1
-rpsIdx <- 1
-
 
 get_player_games_query_params <- function(gameId, year, seasonType, week, team, conference){
 	# QUERY PARAMS MUST BE EITHER gameId OR year + (week OR team OR conference)
