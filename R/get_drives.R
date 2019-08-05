@@ -4,7 +4,7 @@
 #'
 #'@param year (required) Year for desired games
 #'
-#'@param week (required) Week number
+#'@param week (optional) Week number
 #'
 #'@param seasonType (optional) [regular/postseason] Season Type for desired games
 #'
