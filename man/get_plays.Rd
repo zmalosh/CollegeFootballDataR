@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_plays.R
 \name{get_plays}
 \alias{get_plays}
-\title{Gets a set of college football games}
+\title{Gets a set of college football plays}
 \usage{
 get_plays(year, week, seasonType = "regular", team = NULL,
   offense = NULL, defense = NULL, conference = NULL,
@@ -29,7 +29,7 @@ get_plays(year, week, seasonType = "regular", team = NULL,
 \item{playTypeId}{(optional) playTypeId for desired type of play to return}
 }
 \description{
-Get all of the games that meet the provided criteria
+Get all of the plays from games that meet the provided criteria
 }
 \examples{
 
