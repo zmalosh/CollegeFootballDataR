@@ -14,7 +14,7 @@
 #'
 #'@export
 
-get_matchups <- function(team1, team2, minYear = NULL, maxYear = NULL){
+get_team_matchups <- function(team1, team2, minYear = NULL, maxYear = NULL){
 	source('R/get_json_from_url.R')
 	queryParams <- get_matchup_query_parameters(team1, team2, minYear, maxYear)
 	rawMatchups <- get_json_from_url('teams/matchup', queryParams = queryParams)
@@ -57,7 +57,7 @@ get_matchups <- function(team1, team2, minYear = NULL, maxYear = NULL){
 	return(matchups)
 }
 
-get_matchup_query_parameters <- function(team1, team2, minYear, maxYear){
+get_team_matchup_query_parameters <- function(team1, team2, minYear, maxYear){
 	if(is.null(team1) || is.null(team2)){
 		stop('Both team1 and team2 must be provided.')
 	}
