@@ -7,8 +7,7 @@
 #'@export
 
 get_play_types <- function(){
-	source('R/get_json_from_url.R')
-	rawPlayTypes <- get_json_from_url('play/types')
+	rawPlayTypes <- get_CFB_json_from_url('play/types')
 	playTypes <- data.frame(PlayTypeId = rawPlayTypes$id,
 							PlayTypeName = rawPlayTypes$text,
 							PlayTypeAbbr = rawPlayTypes$abbreviation,

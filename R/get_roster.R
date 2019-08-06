@@ -9,9 +9,8 @@
 #'@export
 
 get_roster <- function(team){
-	source('R/get_json_from_url.R')
 	queryParams <- get_roster_query_parameters(team)
-	rawRoster <- get_json_from_url('roster', queryParams = queryParams)
+	rawRoster <- get_CFB_json_from_url('roster', queryParams = queryParams)
 	roster <- data.frame(PlayerId = rawRoster$id,
 						 FirstName = rawRoster$first_name,
 						 LastName = rawRoster$last_name,

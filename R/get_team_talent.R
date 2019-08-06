@@ -9,9 +9,8 @@
 #'@export
 
 get_team_talent <- function(year){
-	source('R/get_json_from_url.R')
 	queryParams <- get_team_talent_query_parameters(year)
-	rawTalent <- get_json_from_url(urlPath = 'talent', queryParams = queryParams)
+	rawTalent <- get_CFB_json_from_url(urlPath = 'talent', queryParams = queryParams)
 	talent <- data.frame(Year = rawTalent$year,
 						 SchoolName = rawTalent$school,
 						 Rating = rawTalent$talent,

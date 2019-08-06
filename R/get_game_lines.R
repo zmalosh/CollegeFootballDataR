@@ -27,9 +27,8 @@ get_game_lines <- function(year,
 						   home = NULL,
 						   away = NULL,
 						   conference = NULL){
-	source('R/get_json_from_url.R')
 	queryParams <- get_game_lines_query_parameters(year, week, seasonType, team, home, away, conference)
-	rawLines <- get_json_from_url(urlPath = 'lines', queryParams = queryParams)
+	rawLines <- get_CFB_json_from_url(urlPath = 'lines', queryParams = queryParams)
 	df <- data.frame(GameId = c(), HomeTeam = c(), AwayTeam = c(), HomeScore = c(), AwayScore = c(),
 						 Bookmaker = c(), HomeSpread = c(), OverUnder = c(), SpreadDisplay = c())
 	for(i in seq_len(nrow(rawLines))){

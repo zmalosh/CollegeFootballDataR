@@ -15,9 +15,8 @@
 #'@export
 
 get_team_matchups <- function(team1, team2, minYear = NULL, maxYear = NULL){
-	source('R/get_json_from_url.R')
 	queryParams <- get_matchup_query_parameters(team1, team2, minYear, maxYear)
-	rawMatchups <- get_json_from_url('teams/matchup', queryParams = queryParams)
+	rawMatchups <- get_CFB_json_from_url('teams/matchup', queryParams = queryParams)
 	matchups <- data.frame(Season = rawMatchups$games$season,
 						   SeasonType = rawMatchups$games$seasonType,
 						   Week = rawMatchups$games$week,

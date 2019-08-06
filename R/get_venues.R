@@ -7,8 +7,7 @@
 #'@export
 
 get_venues <- function(){
-	source('R/get_json_from_url.R')
-	rawVenues <- get_json_from_url('venues')
+	rawVenues <- get_CFB_json_from_url('venues')
 	venues <- data.frame(VenueId = rawVenues$id,
 						 VenueName = rawVenues$name,
 						 Capacity = rawVenues$capacity,

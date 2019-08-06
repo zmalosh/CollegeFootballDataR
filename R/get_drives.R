@@ -31,10 +31,9 @@ get_drives <- function(year,
 					   conference = NULL,
 					   offenseConference = NULL,
 					   defenseConference = NULL){
-	source('R/get_json_from_url.R')
 	queryParams <- get_drives_query_parameters(year, week, seasonType, team, offense, defense,
 											  conference, offenseConference, defenseConference)
-	rawDrives <- get_json_from_url(urlPath = 'drives', queryParams = queryParams)
+	rawDrives <- get_CFB_json_from_url(urlPath = 'drives', queryParams = queryParams)
 	drives <- data.frame(DriveId = rawDrives$id,
 						 GameId = rawDrives$game_id,
 						 Offense = rawDrives$offense,

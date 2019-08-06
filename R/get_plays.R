@@ -34,11 +34,10 @@ get_plays <- function(year,
 					  offenseConference = NULL,
 					  defenseConference = NULL,
 					  playTypeId = NULL){
-	source('R/get_json_from_url.R')
 	queryParams <- get_plays_query_parameters(year, week, seasonType, team, offense, defense,
 									conference, offenseConference, defenseConference,
 									playTypeId)
-	rawPlays <- get_json_from_url(urlPath = 'plays', queryParams = queryParams)
+	rawPlays <- get_CFB_json_from_url(urlPath = 'plays', queryParams = queryParams)
 	plays <- data.frame(
 		PlayId = rawPlays$id,
 		DriveId = rawPlays$drive_id,

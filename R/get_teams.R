@@ -9,9 +9,8 @@
 #'@export
 
 get_teams <- function(conference = NULL){
-	source('R/get_json_from_url.R')
 	queryParams <- get_teams_query_parameters(conference)
-	rawTeams <- get_json_from_url(urlPath = 'teams', queryParams = queryParams)
+	rawTeams <- get_CFB_json_from_url(urlPath = 'teams', queryParams = queryParams)
 	teams <- data.frame(SchoolName = rawTeams$school,
 						Mascot = rawTeams$mascot,
 						Conference = rawTeams$conference,

@@ -1,4 +1,20 @@
-get_json_from_url <- function(urlPath,
+#'@title Makes call to CollegeFootballData.com API and returns the JSON from the response
+#'
+#'@description Gets desired data as JSON
+#'
+#'@param urlPath The path (no root) for the desired resource. Venues would pass in 'venues'.
+#'
+#'@param queryParams A named list with the desired query parameters. list(year=2016, week=1) will result in ?year=2016&week=1 being used as the query string.
+#'
+#'@param cacheLocation A check for a cached JSON response. This method does not currently cache on its own.
+#'
+#'@param cacheTimeSec Time in seconds that will result in the cache being ignored. A value of 30 will result in cached values being ignored if created over 30 seconds ago. A value of 0 mean no expiration.
+#'
+#'@examples
+#'
+#'@export
+
+get_CFB_json_from_url <- function(urlPath,
 							  queryParams = NULL,
 							  cacheLocation = NULL,
 							  cacheTimeSec = 0){

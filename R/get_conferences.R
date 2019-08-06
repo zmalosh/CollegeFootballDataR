@@ -7,10 +7,9 @@
 #'@export
 
 get_conferences <- function(){
-	source('R/get_json_from_url.R')
 	safOpt <- getOption('stringsAsFactors')
 	options(stringsAsFactors = FALSE)
-	conferences <- get_json_from_url('conferences') %>%
+	conferences <- get_CFB_json_from_url('conferences') %>%
 		transform(ConferenceId = id,
 				  ConferenceName = name,
 				  ConferenceFullName = short_name,

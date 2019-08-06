@@ -24,9 +24,8 @@ get_coach_seasons <- function(firstName = NULL,
 							  year = NULL,
 							  minYear = NULL,
 							  maxYear = NULL){
-	source('R/get_json_from_url.R')
 	queryParams <- get_coach_season_query_parameters(firstName, lastName, team, year, minYear, maxYear)
-	rawCoaches <- get_json_from_url('coaches', queryParams = queryParams)
+	rawCoaches <- get_CFB_json_from_url('coaches', queryParams = queryParams)
 	coachSeasons <- data.frame(FirstName = c(), LastName = c(), SchoolName = c(), Year = c(),
 							   Year = c(), Wins = c(), Losses = c(), Ties = c(),
 							   PreseasonRank = c(), PostseasonRank = c())

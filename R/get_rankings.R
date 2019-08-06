@@ -9,9 +9,8 @@
 #'@export
 
 get_rankings <- function(year){
-	source('R/get_json_from_url.R')
 	queryParams <- get_rankings_query_parameters(year, 'regular')
-	rawRankings <- get_json_from_url('rankings', queryParams = queryParams)
+	rawRankings <- get_CFB_json_from_url('rankings', queryParams = queryParams)
 	df <- rankings_raw_to_df(rawRankings)
 	queryParams <- get_rankings_query_parameters(year, 'postseason')
 	rawRankings <- get_json_from_url('rankings', queryParams = queryParams)

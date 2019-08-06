@@ -24,9 +24,8 @@ get_player_games <- function(gameId = NULL,
 							 week = NULL,
 							 team = NULL,
 							 conference = NULL){
-	source('R/get_json_from_url.R')
 	queryParams <- get_player_games_query_params(gameId, year, seasonType, week, team, conference)
-	rawPlayerGames <- get_json_from_url(urlPath = 'games/players', queryParams = queryParams)
+	rawPlayerGames <- get_CFB_json_from_url(urlPath = 'games/players', queryParams = queryParams)
 	allRawStats <- data.frame(GameId = c(), PlayerId = c(), PlayerName = c(), SchoolName = c(),
 							  SchoolConference = c(), StatName = c(), StatCategory = c(),
 							  StatAbbr = c(), StatValue = c(), IsHomeTeam = c(),
