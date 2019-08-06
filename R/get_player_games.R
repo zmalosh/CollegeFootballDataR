@@ -55,8 +55,7 @@ get_player_games <- function(gameId = NULL,
 			}
 		}
 	}
-	playerStats <- allRawStats %>%
-		spread(StatName, StatValue)
+	playerStats <- allRawStats %>% tidyr::spread(StatName, StatValue)
 
 	return(playerStats)
 }

@@ -30,15 +30,15 @@ get_team_matchups <- function(team1, team2, minYear = NULL, maxYear = NULL){
 						   Dummy = rep(TRUE, times = nrow(rawMatchups$games)),
 						   stringsAsFactors = FALSE)
 	matchups <- matchups %>%
-		inner_join(matchups, by = 'Dummy', suffix = c('', '.other')) %>%
-		filter(GameDateUtc.other <= GameDateUtc) %>%
-		group_by(Season, SeasonType, Week, GameDateUtc) %>%
-		summarise(HomeTeam = first(HomeTeam),
-				  AwayTeam = first(AwayTeam),
-				  HomeScore = first(HomeScore),
-				  AwayScore = first(AwayScore),
-				  IsNeutralSite = first(IsNeutralSite),
-				  Venue = first(Venue),
+		dplyr::inner_join(matchups, by = 'Dummy', suffix = c('', '.other')) %>%
+		dplyr::filter(GameDateUtc.other <= GameDateUtc) %>%
+		dplyr::group_by(Season, SeasonType, Week, GameDateUtc) %>%
+		dplyr::summarise(HomeTeam = dplyr::first(HomeTeam),
+				  AwayTeam = dplyr::first(AwayTeam),
+				  HomeScore = dplyr::first(HomeScore),
+				  AwayScore = dplyr::first(AwayScore),
+				  IsNeutralSite = dplyr::first(IsNeutralSite),
+				  Venue = dplyr::first(Venue),
 				  WinsHome = sum(
 				  	ifelse(HomeTeam == HomeTeam.other & HomeScore.other > AwayScore.other,
 				  		   1,

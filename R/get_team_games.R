@@ -49,12 +49,12 @@ get_team_games <- function(gameId = NULL,
 	}
 
 	result <- allRawStats %>%
-		spread(StatName, StatValue) %>%
-		separate(TimeOfPoss, c('TimeOfPossMin', 'TimeOfPossSec'), sep = ':') %>%
-		separate(FourthDownEff, c('FourthDownConversions', 'FourthDownAtts'), sep = '-') %>%
-		separate(PassAttemptsAndResults, c('PassCompletions', 'PassAtts'), sep = '-') %>%
-		separate(PenaltyBreakdown, c('PenaltiesCommited', 'PenaltyYdsLost'), sep = '-') %>%
-		separate(ThirdDownEff, c('ThirdDownConversions', 'ThirdDownAtts'), sep = '-') %>%
+		tidyr::spread(StatName, StatValue) %>%
+		tidyr::separate(TimeOfPoss, c('TimeOfPossMin', 'TimeOfPossSec'), sep = ':') %>%
+		tidyr::separate(FourthDownEff, c('FourthDownConversions', 'FourthDownAtts'), sep = '-') %>%
+		tidyr::separate(PassAttemptsAndResults, c('PassCompletions', 'PassAtts'), sep = '-') %>%
+		tidyr::separate(PenaltyBreakdown, c('PenaltiesCommited', 'PenaltyYdsLost'), sep = '-') %>%
+		tidyr::separate(ThirdDownEff, c('ThirdDownConversions', 'ThirdDownAtts'), sep = '-') %>%
 		mutate(FirstDowns = as.integer(FirstDowns),
 			   FourthDownAtts = as.integer(FourthDownAtts),
 			   FourthDownConversions = as.integer(FourthDownConversions),
