@@ -13,7 +13,7 @@ get_rankings <- function(year){
 	rawRankings <- get_CFB_json_from_url('rankings', queryParams = queryParams)
 	df <- rankings_raw_to_df(rawRankings)
 	queryParams <- get_rankings_query_parameters(year, 'postseason')
-	rawRankings <- get_json_from_url('rankings', queryParams = queryParams)
+	rawRankings <- get_CFB_json_from_url('rankings', queryParams = queryParams)
 	df <- rbind(df, rankings_raw_to_df(rawRankings))
 	return(df)
 }
