@@ -40,6 +40,7 @@ get_player_games <- function(gameId = NULL,
 				rawTeamCategory <- rawTeamCategories[catIdx,]
 				rawPlayerStats <- as.data.frame(rawTeamCategory$types)
 				for(rpsIdx in seq_len(nrow(rawPlayerStats))){
+					print(paste(rpgIdx, teamIdx, catIdx, rpsIdx, sep = '-'))
 					rawPlayerStat <- rawPlayerStats[rpsIdx,]
 					rawPlayers <- as.data.frame(rawPlayerStat$athletes)
 					statName <- get_player_stat_name(rawTeamCategory$name, rawPlayerStat$name)
@@ -137,6 +138,7 @@ get_player_stat_name <- function(statCategory, statAbbr){
 					 "kicking-pct" = 'FGPct',
 					 "kicking-pts" = 'FGPts',
 					 "kicking-xp" = 'XPMade',
+					 "kicking-tot" = 'FGMade',
 					 "kickreturns-avg" = 'KickRetAvg',
 					 "kickreturns-long" = 'KickRetLongYds',
 					 "kickreturns-no" = 'KickRetAtts',
