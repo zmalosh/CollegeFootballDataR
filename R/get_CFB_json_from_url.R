@@ -28,7 +28,7 @@ get_CFB_json_from_url <- function(urlPath,
 		}
 	}
 
-	urlPath <- stringr::str_replace(paste0('/', urlPath), '//', '/')
+	urlPath <- stringr::str_replace_all(paste0('/', urlPath), '//', '/')
 	url <- paste0('https://api.collegefootballdata.com', urlPath)
 
 	if(!is.null(queryParams)){
