@@ -57,6 +57,7 @@ get_player_games <- function(gameId = NULL,
 	}
 
 	playerStats <- allRawStats %>%
+		unique() %>%
 		tidyr::spread(StatName, StatValue) %>%
 		tidyr::separate(PassCompPct, c('PassComps', 'PassAtts'), sep = '/') %>%
 		tidyr::separate(FGMade, c('FGAtts', 'FGMade'), sep = '/')
