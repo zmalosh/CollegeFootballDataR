@@ -55,7 +55,15 @@ get_player_games <- function(gameId = NULL,
 			}
 		}
 	}
-	playerStats <- allRawStats %>% tidyr::spread(StatName, StatValue)
+
+	playerStats <- allRawStats %>%
+		tidyr::spread(StatName, StatValue) %>%
+		tidyr::separate(PassCompPct, c('PassComps', 'PassAtts'), sep = '/') %>%
+		tidyr::separate(FGMade, c('FGAtts', 'FGMade'), sep = '/')
+
+	notIdVars <- names(playerStats)[!(names(playerStats) %in% c('GameId','PlayerId','PlayerName','SchoolName'))]
+
+	playerStats <- playerStats %>% dplyr::mutate_at(vars(notIdVars), as.numeric)
 
 	return(playerStats)
 }
