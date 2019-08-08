@@ -94,7 +94,9 @@ get_player_games_query_params <- function(gameId, year, seasonType, week, team, 
 
 		if(!is.null(seasonType)){
 			seasonType <- tolower(seasonType)
-			if(!(seasonType %in% c('regular', 'postseason')))
+			if(!(seasonType %in% c('regular', 'postseason'))){
+				stop('SeasonType must be either "regular" or "postseason".')
+			}
 			queryParams <- c(queryParams, seasonType = seasonType)
 		}
 
