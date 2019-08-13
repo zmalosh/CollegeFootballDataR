@@ -26,6 +26,10 @@ get_player_games <- function(gameId = NULL,
 							 conference = NULL){
 	queryParams <- get_player_games_query_params(gameId, year, seasonType, week, team, conference)
 	rawPlayerGames <- get_CFB_json_from_url(urlPath = 'games/players', queryParams = queryParams)
+	gameCount <- nrow(rawPlayerGames)
+
+	if(is.null(rawPlayerGames) || gameCount == 0){return(NULL)}
+
 	allRawStats <- data.frame(GameId = c(), PlayerId = c(), PlayerName = c(), SchoolName = c(),
 							  SchoolConference = c(), StatName = c(), StatCategory = c(),
 							  StatAbbr = c(), StatValue = c(), IsHomeTeam = c(),
